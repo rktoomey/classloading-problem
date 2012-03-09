@@ -1,0 +1,22 @@
+@(message: String)
+
+@main("ClassLoading Fails using Salat") {
+         <h1>@message</h1>
+        <div>This will fail if you update the code and ask a <b>recompile</b></div>
+        <div>Go to <b>controllers/Application.scala</b> and update the message sent to the template</div>
+        <hr/>
+        <div>You'll see : </div>
+        <div style='background:#F5A0A0;color:#730000;'>[LinkageError: loader constraint violation: when resolving method "models.Profile.<init>(Lmodels/Billing;)V" the class loader (instance of sbt/PlayReloader$$anon$2$$anon$1) of the current class, models/User$, and the class loader (instance of sbt/PlayReloader$$anon$2$$anon$1) for resolved class, models/Profile, have different Class objects for the type models/Billing used in the signature]</div>
+        <hr>
+        <div>Back to the console
+        <ul>
+            <li>stop the server</li>
+            <li>re-run it</li>
+            <li>you'll see this page again</li>
+        </ul>
+        </div>
+        <hr>
+        <div>HINT: Accordingly to a post on the google groups, Guillaume Bort said that it might be due to Salat caching class or classloaders.</div>
+
+    
+}
