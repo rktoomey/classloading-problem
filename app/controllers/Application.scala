@@ -10,7 +10,7 @@ object Application extends Controller {
     //Necessary to blow the recompilation...
     val user = User()
 
-    Ok(views.html.index("Tet me 4"))
+    Ok(views.html.index("Tet me 7"))
   }
   
 }
