@@ -1,9 +1,16 @@
 package models
 
+import models.salatctx._
+
 /**
  * User: andy
  */
 
-case class Billing(data:String = "") {
+object Billing {
+  // more efficient object allocation!
+  val empty = Billing(data = "")
+}
+
+case class Billing(data: String = "") {
 
 }

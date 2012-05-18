@@ -13,16 +13,17 @@ import play.api.Play._
 
 package object salatctx {
   /**
-   * Here is where we define the custom Play serialization context, including the Play classloader.
+   * Here is a custom context which always maps a field called "_id" to "id"
    */
   implicit val ctx = {
     val c = new Context {
-      val name = "play-context"
-    }
-
-    c.registerClassLoader(Play.classloader)
-
+        val name = "play-context"
+      }
+    c.registerGlobalKeyOverride(remapThis = "id", toThisInstead = "_id")
     c
   }
+
+  // Registering the play classloader is no longer necessary with Play 2.0
+  // Please see https://github.com/novus/salat/wiki/SalatWithPlay
 
 }
